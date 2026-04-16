@@ -1,0 +1,713 @@
+<!-- DIRECTION: NEXUS v3 — Light, luxury, typographically refined. Cormorant Garamond for headlines, Inter for UI. Crimson accent, warm off-white ground. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>KastrosKastle — NEXUS v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --crimson:       #8B0000;
+    --crimson-hover: #6B0000;
+    --crimson-tint:  rgba(139,0,0,0.07);
+    --bg:            #F5F2EE;
+    --surface:       #EDE9E3;
+    --border:        rgba(0,0,0,0.09);
+    --border-med:    rgba(0,0,0,0.18);
+    --text:          #0F0D0B;
+    --text-inv:      #FAFAF9;
+    --muted:         #7B746B;
+    --dim:           #B8B0A6;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    width: 1440px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 72px;
+    height: 76px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo svg { width: 38px; height: 38px; }
+
+  /* Logo name stays Inter — it's UI, not display */
+  .logo-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .logo-name em {
+    font-style: normal;
+    color: var(--crimson);
+  }
+
+  .logo-tagline {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dim);
+    display: block;
+    margin-top: 3px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.active { color: var(--text); font-weight: 700; }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-contact {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-contact:hover { color: var(--text); }
+
+  .btn-start {
+    padding: 0 28px;
+    height: 42px;
+    background: var(--crimson);
+    color: var(--text-inv);
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-start:hover { background: var(--crimson-hover); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    padding: 0 72px;
+    height: calc(100vh - 76px);
+    min-height: 760px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero-top {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 52px 0 44px;
+    flex-shrink: 0;
+  }
+
+  .hero-left { max-width: 820px; }
+
+  .hero-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding: 6px 14px 6px 10px;
+    border: 1px solid var(--border-med);
+    border-radius: 2px;
+  }
+
+  .loc-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .loc-text {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  /* ─── DISPLAY HEADLINE — Cormorant Garamond ─── */
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 112px;
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    user-select: none;
+  }
+
+  .h-row { display: block; }
+
+  /* Solid dark */
+  .h-solid { color: var(--text); }
+
+  /* Ghost / outline — CG has fine strokes, keep stroke thin */
+  .h-ghost {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(15,13,11,0.18);
+  }
+
+  /* Crimson accent */
+  .h-crimson { color: var(--crimson); }
+
+  /* Mixed-weight row: small light word + big bold word */
+  .h-mix {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  /* Elegant thin companion word */
+  .h-thin {
+    font-size: 56px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── HERO RIGHT ─── */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 32px;
+    max-width: 340px;
+    padding-bottom: 8px;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    border-right: 2px solid var(--crimson);
+    padding-right: 16px;
+  }
+
+  /* Stats get Cormorant Garamond — display numerals, elegant */
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .hero-desc {
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn-hero {
+    padding: 0 36px;
+    height: 52px;
+    background: var(--crimson);
+    color: var(--text-inv);
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-hero:hover { background: var(--crimson-hover); }
+
+  .btn-hero-ghost {
+    padding: 0 28px;
+    height: 52px;
+    background: transparent;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-med);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .btn-hero-ghost:hover { color: var(--text); border-color: var(--text); }
+
+  /* ─── WORK SHOWCASE PANELS ─── */
+  .showcase {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 14px;
+    min-height: 0;
+  }
+
+  .panel {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 3px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    border: 1.5px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .panel:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 8px 48px rgba(139,0,0,0.15);
+  }
+
+  /* Real photo background */
+  .panel-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .panel:hover .panel-img { transform: scale(1.04); }
+
+  /* Gradient overlay */
+  .panel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(8,4,2,0.92) 0%,
+      rgba(8,4,2,0.45) 45%,
+      rgba(8,4,2,0.10) 100%
+    );
+    z-index: 2;
+  }
+
+  /* Number badge — top-left — stays Inter (label) */
+  .panel-num {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    z-index: 4;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* Panel info at bottom */
+  .panel-info {
+    position: relative;
+    z-index: 4;
+    padding: 28px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .panel-service {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(220,100,100,0.95);
+  }
+
+  .panel-service-dash {
+    width: 18px;
+    height: 1.5px;
+    background: rgba(220,100,100,0.95);
+    flex-shrink: 0;
+  }
+
+  /* Panel titles — Cormorant Garamond, refined and editorial */
+  .panel-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-inv);
+    line-height: 1.02;
+  }
+
+  .panel-1 .panel-title { font-size: 34px; }
+
+  .panel-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.7;
+    max-width: 300px;
+  }
+
+  .panel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-inv);
+    margin-top: 6px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .panel:hover .panel-link { opacity: 1; transform: translateY(0); }
+
+  .panel-link-line {
+    width: 24px;
+    height: 1.5px;
+    background: var(--crimson);
+    transition: width 0.25s;
+  }
+  .panel:hover .panel-link-line { width: 38px; }
+
+  /* ─── TICKER BAR ─── */
+  .ticker-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 42px;
+    background: var(--crimson);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 20;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    animation: ticker 24s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 32px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .ticker-sep {
+    font-size: 8px;
+    opacity: 0.5;
+    letter-spacing: 0;
+  }
+
+  /* ─── PANEL ACCENT STRIP ─── */
+  .panel-accent-strip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--crimson);
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 0.3s;
+  }
+  .panel:hover .panel-accent-strip { opacity: 0.7; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <!-- Castle hexagon logo — crimson on light bg -->
+    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 2L96 28V84L50 110L4 84V28L50 2Z" stroke="#8B0000" stroke-width="4.5" fill="none"/>
+      <rect x="36" y="56" width="28" height="36" fill="#8B0000"/>
+      <rect x="32" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="45.5" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="59" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="44" y="70" width="12" height="22" fill="#F5F2EE"/>
+    </svg>
+    <div>
+      <div class="logo-name">Kastros<em>Kastle</em></div>
+      <span class="logo-tagline">Creative Studio</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#" class="active">Work</a></li>
+    <li><a href="#">Web Dev</a></li>
+    <li><a href="#">Video</a></li>
+    <li><a href="#">Photography</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="mailto:hello@kastroskastle.com" class="nav-contact">hello@kastroskastle.com</a>
+    <button class="btn-start">
+      Start a Project
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+        <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-top">
+
+    <!-- LEFT: Headline -->
+    <div class="hero-left">
+      <div class="hero-location">
+        <div class="loc-dot"></div>
+        <span class="loc-text">Creative Studio · Miami, FL</span>
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="h-row h-solid">Your Brand,</span>
+        <span class="h-row h-ghost">Brought</span>
+        <span class="h-row h-crimson">to Life.</span>
+      </h1>
+    </div>
+
+    <!-- RIGHT: Stats + Desc + CTA -->
+    <div class="hero-right">
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Core Services</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">8yr</span>
+          <span class="stat-label">In the Game</span>
+        </div>
+      </div>
+
+      <div class="hero-divider"></div>
+
+      <p class="hero-desc">
+        We design, build, shoot, and produce — delivering
+        web experiences, brand films, and photography
+        that move people and drive real results.
+      </p>
+
+      <div class="hero-cta-group">
+        <button class="btn-hero">View Our Work</button>
+        <button class="btn-hero-ghost">Our Process</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK SHOWCASE PANELS -->
+  <div class="showcase">
+
+    <!-- Panel 1: Web Development -->
+    <div class="panel panel-1">
+      <img
+        class="panel-img"
+        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80"
+        alt="Web Development"
+        loading="eager"
+      />
+      <div class="panel-overlay"></div>
+      <div class="panel-accent-strip"></div>
+      <span class="panel-num">01</span>
+
+      <div class="panel-info">
+        <div class="panel-service">
+          <div class="panel-service-dash"></div>
+          Web Development
+        </div>
+        <div class="panel-title">Sites That<br>Convert</div>
+        <div class="panel-desc">Custom builds, e-commerce, and web apps designed around your business goals.</div>
+        <div class="panel-link">
+          <div class="panel-link-line"></div>
+          View Projects
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Video Production -->
+    <div class="panel panel-2">
+      <img
+        class="panel-img"
+        src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&q=80"
+        alt="Video Production"
+        loading="eager"
+      />
+      <div class="panel-overlay"></div>
+      <div class="panel-accent-strip"></div>
+      <span class="panel-num">02</span>
+
+      <div class="panel-info">
+        <div class="panel-service">
+          <div class="panel-service-dash"></div>
+          Video Production
+        </div>
+        <div class="panel-title">Cinematic<br>Brand Films</div>
+        <div class="panel-desc">Commercials, reels, and documentaries built to make an impact.</div>
+        <div class="panel-link">
+          <div class="panel-link-line"></div>
+          View Reel
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Photography -->
+    <div class="panel panel-3">
+      <img
+        class="panel-img"
+        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&q=80"
+        alt="Photography"
+        loading="eager"
+      />
+      <div class="panel-overlay"></div>
+      <div class="panel-accent-strip"></div>
+      <span class="panel-num">03</span>
+
+      <div class="panel-info">
+        <div class="panel-service">
+          <div class="panel-service-dash"></div>
+          Photography
+        </div>
+        <div class="panel-title">Images That<br>Tell Stories</div>
+        <div class="panel-desc">Product, editorial, and event photography with a premium eye.</div>
+        <div class="panel-link">
+          <div class="panel-link-line"></div>
+          View Portfolio
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CRIMSON TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span class="ticker-item">Web Development <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Video Production <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Brand Identity <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Creative Direction <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">KastrosKastle Studio <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Web Development <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Video Production <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Brand Identity <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Creative Direction <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">KastrosKastle Studio <span class="ticker-sep">◆</span></span>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
