@@ -7,19 +7,25 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#0A0A0A; color:#fff; font-family:Inter,sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; gap:32px; }
 h1 { font-size:24px; letter-spacing:0.1em; color:#8B0000; }
-.links { display:flex; gap:24px; }
-a { display:block; padding:20px 40px; border:1px solid #8B0000; color:#fff; text-decoration:none; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; transition:background 0.2s; }
+.links { display:flex; flex-direction:column; gap:12px; align-items:center; }
+.row { display:flex; gap:16px; }
+a { display:block; padding:16px 32px; border:1px solid #8B0000; color:#fff; text-decoration:none; font-size:13px; letter-spacing:0.15em; text-transform:uppercase; transition:background 0.2s; }
 a:hover { background:#8B0000; }
-p { font-size:12px; color:#666; letter-spacing:0.1em; }
+a.featured { border-color:#fff; padding:20px 48px; font-size:14px; }
+.label { font-size:10px; color:#666; letter-spacing:0.2em; text-transform:uppercase; }
 </style>
 </head>
 <body>
 <h1>KASTROSKASTLE — LAYOUT DIRECTIONS</h1>
-<p>Click to preview each direction</p>
 <div class="links">
-<a href="direction-A.html">A — STRONGHOLD</a>
-<a href="direction-B.html">B — SIGNAL</a>
-<a href="direction-C.html">C — NEXUS</a>
+  <span class="label">★ Revised</span>
+  <a href="nexus-v2.html" class="featured">C — NEXUS v2 (Light)</a>
+  <span class="label">Original directions</span>
+  <div class="row">
+    <a href="direction-A.html">A — STRONGHOLD</a>
+    <a href="direction-B.html">B — SIGNAL</a>
+    <a href="direction-C.html">C — NEXUS v1</a>
+  </div>
 </div>
 </body>
 </html>
