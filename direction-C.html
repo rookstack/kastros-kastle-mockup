@@ -1,0 +1,759 @@
+<!-- DIRECTION: NEXUS — A work-forward agency layout where three live service showcase panels sit below the hero fold, letting the creative output itself do the selling — premium, gallery-first, quietly confident. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>KastrosKastle — NEXUS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --crimson: #8B0000;
+    --crimson-hover: #a30000;
+    --bg: #0D0D0D;
+    --surface: #151515;
+    --surface-2: #1A1A1A;
+    --border: #1E1E1E;
+    --border-2: #2A2A2A;
+    --text: #FAFAFA;
+    --muted: #6B6B6B;
+    --dim: #333;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    width: 1440px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 72px;
+    height: 76px;
+    background: rgba(13,13,13,0.95);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo svg { width: 36px; height: 36px; }
+
+  .logo-name {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .logo-name em {
+    font-style: normal;
+    color: var(--crimson);
+  }
+
+  .logo-tagline {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-links a.active { color: var(--text); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-contact {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-contact:hover { color: var(--text); }
+
+  .btn-start {
+    padding: 0 32px;
+    height: 42px;
+    background: var(--crimson);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-start:hover { background: var(--crimson-hover); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    padding: 0 72px;
+    height: calc(100vh - 76px);
+    min-height: 720px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Hero top section: headline + meta */
+  .hero-top {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 64px 0 52px;
+    flex-shrink: 0;
+  }
+
+  .hero-left {}
+
+  .hero-location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .loc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .loc-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .hero-headline {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 0.93;
+    letter-spacing: -0.04em;
+    max-width: 740px;
+    text-transform: uppercase;
+  }
+
+  .hero-headline .row { display: block; }
+
+  .hero-headline .row-outline {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.14);
+  }
+
+  .hero-headline .crimson { color: var(--crimson); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 28px;
+    max-width: 360px;
+    padding-bottom: 6px;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn-hero {
+    padding: 0 40px;
+    height: 52px;
+    background: var(--crimson);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-hero:hover { background: var(--crimson-hover); }
+
+  .btn-hero-ghost {
+    padding: 0 32px;
+    height: 52px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-2);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-hero-ghost:hover { color: var(--text); border-color: #555; }
+
+  /* ─── WORK SHOWCASE PANELS ─── */
+  .showcase {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 16px;
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .panel {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: border-color 0.3s;
+  }
+
+  .panel:hover { border-color: var(--crimson); }
+
+  /* Simulated photo/video background */
+  .panel-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: transform 0.5s ease;
+  }
+
+  .panel:hover .panel-bg { transform: scale(1.04); }
+
+  .panel-1 .panel-bg {
+    background:
+      linear-gradient(160deg, #1a0a0a 0%, #0d0d0d 100%),
+      repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 1px, transparent 1px, transparent 40px);
+    background-blend-mode: overlay;
+  }
+
+  .panel-2 .panel-bg {
+    background: linear-gradient(140deg, #0a1a12 0%, #0d0d0d 100%);
+  }
+
+  .panel-3 .panel-bg {
+    background: linear-gradient(140deg, #1a100a 0%, #0d0d0d 100%);
+  }
+
+  /* Simulated content in panel */
+  .panel-1 .panel-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.4;
+  }
+
+  /* Crimson diagonal accent on panel 1 */
+  .panel-1 .panel-accent {
+    position: absolute;
+    top: 0;
+    right: 60px;
+    width: 3px;
+    height: 100%;
+    background: var(--crimson);
+    z-index: 2;
+    opacity: 0.6;
+  }
+
+  /* Mock device/frame */
+  .panel-mock {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .panel-1 .panel-mock {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 320px;
+    height: 200px;
+    border: 2px solid var(--border-2);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mock-browser-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 5px;
+  }
+
+  .mock-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border-2);
+  }
+
+  .mock-url-bar {
+    flex: 1;
+    height: 12px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-left: 8px;
+  }
+
+  .mock-content-lines {
+    padding: 36px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .mock-line {
+    height: 8px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  .mock-line.short { width: 60%; }
+  .mock-line.medium { width: 80%; }
+  .mock-line.accent { background: var(--crimson); opacity: 0.5; width: 40%; height: 12px; }
+
+  /* Video panel mock */
+  .panel-2 .panel-mock {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 200px;
+    height: 130px;
+    border: 2px solid var(--border-2);
+    background: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .play-icon {
+    width: 0;
+    height: 0;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 38px solid var(--crimson);
+    margin-left: 6px;
+    opacity: 0.8;
+  }
+
+  /* Photo panel mock */
+  .panel-3 .panel-mock {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 180px;
+    height: 220px;
+    border: 2px solid var(--border-2);
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .photo-mock-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-icon {
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--border-2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dim);
+    font-size: 18px;
+  }
+
+  /* Panel gradient overlay */
+  .panel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.3) 50%, transparent 100%);
+    z-index: 3;
+  }
+
+  /* Panel info */
+  .panel-info {
+    position: relative;
+    z-index: 4;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .panel-service {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .panel-service-dash {
+    width: 20px;
+    height: 1px;
+    background: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .panel-title {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .panel-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 300px;
+  }
+
+  .panel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-top: 4px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .panel:hover .panel-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .panel-link-bar {
+    width: 28px;
+    height: 1px;
+    background: var(--crimson);
+    transition: width 0.2s;
+  }
+
+  .panel:hover .panel-link-bar { width: 40px; }
+
+  /* Bottom ticker */
+  .ticker-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--crimson);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 20;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 32px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .ticker-sep {
+    font-size: 14px;
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 2L96 28V84L50 110L4 84V28L50 2Z" stroke="#8B0000" stroke-width="5" fill="none"/>
+      <rect x="36" y="56" width="28" height="36" fill="#8B0000"/>
+      <rect x="32" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="45.5" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="59" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="44" y="70" width="12" height="22" fill="#0D0D0D"/>
+    </svg>
+    <div>
+      <div class="logo-name">Kastros<em>Kastle</em></div>
+      <span class="logo-tagline">Creative Studio</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#" class="active">Work</a></li>
+    <li><a href="#">Web Dev</a></li>
+    <li><a href="#">Video</a></li>
+    <li><a href="#">Photography</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="mailto:hello@kastroskastle.com" class="nav-contact">hello@kastroskastle.com</a>
+    <button class="btn-start">
+      Start a Project
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- Hero header -->
+  <div class="hero-top">
+    <div class="hero-left">
+      <div class="hero-location">
+        <div class="loc-dot"></div>
+        <span class="loc-text">Creative Studio · Miami, FL</span>
+      </div>
+      <h1 class="hero-headline">
+        <span class="row">Your Brand,</span>
+        <span class="row">Brought</span>
+        <span class="row-outline">to <span class="crimson">Life.</span></span>
+      </h1>
+    </div>
+
+    <div class="hero-right">
+      <p class="hero-desc">
+        We design, build, shoot, and produce — delivering
+        web experiences, brand films, and photography
+        that move people and drive results.
+      </p>
+      <div class="hero-cta-group">
+        <button class="btn-hero">View Our Work</button>
+        <button class="btn-hero-ghost">Our Process</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Work showcase panels -->
+  <div class="showcase">
+
+    <!-- Panel 1: Web Development -->
+    <div class="panel panel-1">
+      <div class="panel-bg"></div>
+      <div class="panel-accent"></div>
+
+      <!-- Mock browser window -->
+      <div class="panel-mock">
+        <div class="mock-browser-bar">
+          <div class="mock-dot"></div>
+          <div class="mock-dot"></div>
+          <div class="mock-dot"></div>
+          <div class="mock-url-bar"></div>
+        </div>
+        <div class="mock-content-lines">
+          <div class="mock-line accent"></div>
+          <div class="mock-line medium"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-line medium"></div>
+          <div class="mock-line short"></div>
+        </div>
+      </div>
+
+      <div class="panel-overlay"></div>
+      <div class="panel-info">
+        <div class="panel-service">
+          <div class="panel-service-dash"></div>
+          Web Development
+        </div>
+        <div class="panel-title">Sites That<br>Convert</div>
+        <div class="panel-desc">Custom builds, e-commerce, and web apps designed around your business goals.</div>
+        <div class="panel-link">
+          <div class="panel-link-bar"></div>
+          View Projects
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Video Production -->
+    <div class="panel panel-2">
+      <div class="panel-bg"></div>
+
+      <div class="panel-mock">
+        <div class="play-icon"></div>
+      </div>
+
+      <div class="panel-overlay"></div>
+      <div class="panel-info">
+        <div class="panel-service">
+          <div class="panel-service-dash"></div>
+          Video Production
+        </div>
+        <div class="panel-title">Cinematic<br>Brand Films</div>
+        <div class="panel-desc">Commercials, reels, and documentaries that make an impact.</div>
+        <div class="panel-link">
+          <div class="panel-link-bar"></div>
+          View Reel
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Photography -->
+    <div class="panel panel-3">
+      <div class="panel-bg"></div>
+
+      <div class="panel-mock">
+        <div class="photo-mock-inner">
+          <div class="photo-icon">⬡</div>
+        </div>
+      </div>
+
+      <div class="panel-overlay"></div>
+      <div class="panel-info">
+        <div class="panel-service">
+          <div class="panel-service-dash"></div>
+          Photography
+        </div>
+        <div class="panel-title">Images That<br>Tell Stories</div>
+        <div class="panel-desc">Product, editorial, and event photography with a premium editorial eye.</div>
+        <div class="panel-link">
+          <div class="panel-link-bar"></div>
+          View Portfolio
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Crimson ticker at bottom -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <!-- Repeated twice for seamless loop -->
+      <span class="ticker-item">Web Development <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Video Production <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Brand Identity <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Creative Direction <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">KastrosKastle Studio <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Web Development <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Video Production <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Brand Identity <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">Creative Direction <span class="ticker-sep">◆</span></span>
+      <span class="ticker-item">KastrosKastle Studio <span class="ticker-sep">◆</span></span>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!-- DIRECTION: STRONGHOLD — A monumental, symmetrical agency homepage that commands authority: massive headline, bold service pillars, and a structured grid that signals permanence and premium craft. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>KastrosKastle — STRONGHOLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --crimson: #8B0000;
+    --crimson-hover: #a30000;
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --border: #1F1F1F;
+    --text: #FFFFFF;
+    --muted: #777777;
+    --subtle: #333333;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    width: 1440px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+    height: 80px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 20;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo svg { width: 38px; height: 38px; }
+
+  .logo-wordmark {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .logo-wordmark em {
+    font-style: normal;
+    color: var(--crimson);
+  }
+
+  .nav-center {
+    display: flex;
+    gap: 44px;
+    list-style: none;
+  }
+
+  .nav-center a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-center a:hover { color: var(--text); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-tel {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 28px;
+    height: 44px;
+    background: var(--crimson);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-cta:hover { background: var(--crimson-hover); }
+
+  .btn-cta svg { width: 14px; height: 14px; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - 80px);
+    overflow: hidden;
+  }
+
+  /* Subtle grid overlay */
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* Central glow */
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(139,0,0,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 80px 200px;
+  }
+
+  .hero-tag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+
+  .hero-tag-line {
+    width: 48px;
+    height: 1px;
+    background: var(--crimson);
+  }
+
+  .hero-tag span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .hero-headline {
+    font-size: 104px;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    max-width: 960px;
+  }
+
+  .hero-headline .outline {
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.18);
+    color: transparent;
+    display: block;
+  }
+
+  .hero-headline .solid { display: block; }
+
+  .hero-headline .accent { color: var(--crimson); }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 540px;
+    margin-bottom: 52px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn-primary {
+    padding: 0 52px;
+    height: 58px;
+    background: var(--crimson);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--crimson-hover); }
+
+  .btn-outline {
+    padding: 0 52px;
+    height: 58px;
+    background: transparent;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--subtle);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: #666; }
+
+  /* ─── SERVICE PILLARS ─── */
+  .services-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+    z-index: 10;
+  }
+
+  .service-pillar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 36px 56px;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .service-pillar:last-child { border-right: none; }
+
+  .service-pillar:hover { background: #1a1a1a; }
+
+  .pillar-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--crimson);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  .pillar-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .pillar-info {}
+
+  .pillar-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .pillar-desc {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  .pillar-arrow {
+    margin-left: auto;
+    color: var(--crimson);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* ─── SIDE DECORATIONS ─── */
+  .hero-aside-left,
+  .hero-aside-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-aside-left { left: 80px; }
+  .hero-aside-right { right: 80px; }
+
+  .aside-stat { text-align: center; }
+
+  .aside-num {
+    display: block;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--crimson);
+    line-height: 1;
+  }
+
+  .aside-lbl {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    margin-top: 4px;
+  }
+
+  .aside-line {
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+  }
+
+  .aside-vert {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #2a2a2a;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 2L96 28V84L50 110L4 84V28L50 2Z" stroke="#8B0000" stroke-width="5" fill="none"/>
+      <rect x="36" y="56" width="28" height="36" fill="#8B0000"/>
+      <rect x="32" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="45.5" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="59" y="40" width="9" height="18" fill="#8B0000"/>
+      <rect x="44" y="70" width="12" height="22" fill="#0A0A0A"/>
+    </svg>
+    <span class="logo-wordmark">Kastros<em>Kastle</em></span>
+  </a>
+
+  <ul class="nav-center">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Studio</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="tel:+1" class="nav-tel">Available for Projects</a>
+    <button class="btn-cta">
+      Start a Project
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-aside-left">
+    <div class="aside-stat">
+      <span class="aside-num">150+</span>
+      <span class="aside-lbl">Projects</span>
+    </div>
+    <div class="aside-line"></div>
+    <div class="aside-stat">
+      <span class="aside-num">8yr</span>
+      <span class="aside-lbl">In Business</span>
+    </div>
+    <div class="aside-line"></div>
+    <span class="aside-vert">KastrosKastle Studio</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-line"></div>
+      <span>Creative Studio · Est. 2016</span>
+      <div class="hero-tag-line"></div>
+    </div>
+
+    <h1 class="hero-headline">
+      <span class="outline">We Build</span>
+      <span class="solid">Brands That <span class="accent">Reign.</span></span>
+    </h1>
+
+    <p class="hero-sub">
+      A full-service creative studio delivering web experiences,
+      cinematic video, and photography that makes clients
+      impossible to ignore.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn-primary">View Our Work</button>
+      <button class="btn-outline">Our Services</button>
+    </div>
+  </div>
+
+  <div class="hero-aside-right">
+    <span class="aside-vert">Premium Creative Agency</span>
+    <div class="aside-line"></div>
+    <div class="aside-stat">
+      <span class="aside-num">98%</span>
+      <span class="aside-lbl">Retention</span>
+    </div>
+    <div class="aside-line"></div>
+    <div class="aside-stat">
+      <span class="aside-num">40+</span>
+      <span class="aside-lbl">Clients</span>
+    </div>
+  </div>
+
+  <div class="services-bar">
+    <div class="service-pillar">
+      <span class="pillar-number">01</span>
+      <div class="pillar-divider"></div>
+      <div class="pillar-info">
+        <div class="pillar-title">Web Development</div>
+        <div class="pillar-desc">Custom sites, apps & e-commerce</div>
+      </div>
+      <span class="pillar-arrow">→</span>
+    </div>
+    <div class="service-pillar">
+      <span class="pillar-number">02</span>
+      <div class="pillar-divider"></div>
+      <div class="pillar-info">
+        <div class="pillar-title">Video Production</div>
+        <div class="pillar-desc">Commercials, brand films & reels</div>
+      </div>
+      <span class="pillar-arrow">→</span>
+    </div>
+    <div class="service-pillar">
+      <span class="pillar-number">03</span>
+      <div class="pillar-divider"></div>
+      <div class="pillar-info">
+        <div class="pillar-title">Photography</div>
+        <div class="pillar-desc">Product, editorial & event coverage</div>
+      </div>
+      <span class="pillar-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!-- DIRECTION: SIGNAL — An asymmetric, high-tension editorial layout with a dominant left service navigation column, oversized kinetic type, and a crimson slash element that signals speed, precision, and creative edge. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>KastrosKastle — SIGNAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --crimson: #8B0000;
+    --crimson-hover: #a30000;
+    --bg: #0C0C0C;
+    --surface: #131313;
+    --border: #1C1C1C;
+    --text: #F5F5F5;
+    --muted: #666666;
+    --dim: #2A2A2A;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    width: 1440px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── TOP NAV ─── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 52px 0 0;
+    height: 72px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 30;
+  }
+
+  /* Logo sits in the left column space */
+  .logo-zone {
+    width: 340px;
+    flex-shrink: 0;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+  }
+
+  .logo svg { width: 34px; height: 34px; }
+
+  .logo-word {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .logo-word em {
+    font-style: normal;
+    color: var(--crimson);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    height: 36px;
+    border: 1px solid var(--crimson);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-badge:hover {
+    background: var(--crimson);
+    color: var(--text);
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ─── LEFT COLUMN — Service Navigation ─── */
+  .col-left {
+    width: 340px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    padding: 48px 40px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .col-left-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .service-nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: padding-left 0.2s;
+    position: relative;
+  }
+
+  .service-item:first-child { padding-top: 0; }
+
+  .service-item:hover { padding-left: 8px; }
+
+  .service-item.active .service-item-num { color: var(--crimson); }
+  .service-item.active .service-item-title { color: var(--text); }
+  .service-item.active::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--crimson);
+  }
+
+  .service-item-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--dim);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+
+  .service-item-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #3A3A3A;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+
+  .service-item:hover .service-item-title { color: var(--text); }
+
+  .service-item-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+  }
+
+  .col-left-footer {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .available-dot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2ECC71;
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ─── RIGHT COLUMN — Hero ─── */
+  .col-right {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 80px 64px;
+  }
+
+  /* Large diagonal crimson slash */
+  .slash {
+    position: absolute;
+    top: -100px;
+    right: 200px;
+    width: 6px;
+    height: 130%;
+    background: var(--crimson);
+    transform: rotate(12deg);
+    transform-origin: top center;
+    opacity: 0.85;
+  }
+
+  .slash-thin {
+    position: absolute;
+    top: -100px;
+    right: 248px;
+    width: 1px;
+    height: 130%;
+    background: rgba(139,0,0,0.3);
+    transform: rotate(12deg);
+    transform-origin: top center;
+  }
+
+  /* Big number in background */
+  .bg-number {
+    position: absolute;
+    top: 50%;
+    right: 260px;
+    transform: translateY(-50%);
+    font-size: 420px;
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px #1a1a1a;
+    letter-spacing: -0.05em;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Year marker */
+  .year-marker {
+    position: absolute;
+    top: 52px;
+    right: 80px;
+    text-align: right;
+    z-index: 10;
+  }
+
+  .year-marker .yr {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .scroll-hint span {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #2a2a2a;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, #2a2a2a, transparent);
+  }
+
+  /* Hero type */
+  .hero-type {
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow-bar {
+    width: 40px;
+    height: 2px;
+    background: var(--crimson);
+  }
+
+  .eyebrow-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .hero-headline {
+    font-size: 88px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+
+  .hero-headline .row { display: block; }
+  .hero-headline .row-light {
+    display: block;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 64px;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 780px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 380px;
+  }
+
+  .hero-action-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  .btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 40px;
+    height: 56px;
+    background: var(--crimson);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .btn-main:hover { background: var(--crimson-hover); }
+
+  .btn-main-arrow {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .btn-secondary-link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: color 0.2s;
+  }
+
+  .btn-secondary-link:hover { color: var(--text); }
+
+  /* Stats row */
+  .stats-row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    border-top: 1px solid var(--border);
+    background: rgba(12,12,12,0.85);
+    backdrop-filter: blur(8px);
+  }
+
+  .stat-cell {
+    flex: 1;
+    padding: 20px 36px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .stat-cell:last-child { border-right: none; }
+
+  .stat-val {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--crimson);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .stat-info {}
+
+  .stat-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .stat-desc {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav>
+  <div class="logo-zone">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 2L96 28V84L50 110L4 84V28L50 2Z" stroke="#8B0000" stroke-width="5" fill="none"/>
+        <rect x="36" y="56" width="28" height="36" fill="#8B0000"/>
+        <rect x="32" y="40" width="9" height="18" fill="#8B0000"/>
+        <rect x="45.5" y="40" width="9" height="18" fill="#8B0000"/>
+        <rect x="59" y="40" width="9" height="18" fill="#8B0000"/>
+        <rect x="44" y="70" width="12" height="22" fill="#131313"/>
+      </svg>
+      <div>
+        <div class="logo-word">Kastros<em>Kastle</em></div>
+      </div>
+    </a>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#">Selected Work</a></li>
+    <li><a href="#">Studio</a></li>
+    <li><a href="#">Process</a></li>
+    <li><a href="#">Journal</a></li>
+  </ul>
+
+  <button class="nav-badge">Start a Project →</button>
+</nav>
+
+<!-- MAIN -->
+<div class="layout">
+
+  <!-- LEFT: Service navigation column -->
+  <aside class="col-left">
+    <div class="col-left-label">Our Services</div>
+
+    <nav class="service-nav">
+      <div class="service-item active">
+        <span class="service-item-num">01 ——</span>
+        <div class="service-item-title">Web<br>Development</div>
+        <div class="service-item-tags">
+          <span class="tag">Custom Build</span>
+          <span class="tag">E-Commerce</span>
+          <span class="tag">CMS</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-item-num">02 ——</span>
+        <div class="service-item-title">Video<br>Production</div>
+        <div class="service-item-tags">
+          <span class="tag">Brand Films</span>
+          <span class="tag">Reels</span>
+          <span class="tag">Docs</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <span class="service-item-num">03 ——</span>
+        <div class="service-item-title">Photo&shy;graphy</div>
+        <div class="service-item-tags">
+          <span class="tag">Product</span>
+          <span class="tag">Editorial</span>
+          <span class="tag">Events</span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="col-left-footer">
+      <div class="available-dot">
+        <span class="dot"></span>
+        <span>Accepting new clients</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT: Hero -->
+  <main class="col-right">
+    <div class="slash"></div>
+    <div class="slash-thin"></div>
+
+    <div class="bg-number">K</div>
+
+    <div class="year-marker">
+      <div class="yr">Est. 2016 · Miami, FL</div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <div class="hero-type">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-bar"></div>
+        <span class="eyebrow-text">Full-Service Creative Studio</span>
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="row">Make Them</span>
+        <span class="row">Stop</span>
+        <span class="row-light">and look twice.</span>
+      </h1>
+
+      <div class="hero-meta">
+        <p class="hero-sub">
+          We build websites, shoot video, and capture photography
+          that turns browsers into buyers and brands into
+          cultural signals.
+        </p>
+
+        <div class="hero-action-block">
+          <button class="btn-main">
+            See Our Work
+            <span class="btn-main-arrow">→</span>
+          </button>
+          <button class="btn-secondary-link">View case studies</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom stats strip -->
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-val">150+</div>
+        <div class="stat-info">
+          <div class="stat-name">Projects Delivered</div>
+          <div class="stat-desc">Across all disciplines</div>
+        </div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">8yr</div>
+        <div class="stat-info">
+          <div class="stat-name">In the Industry</div>
+          <div class="stat-desc">Deep craft, zero shortcuts</div>
+        </div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">40+</div>
+        <div class="stat-info">
+          <div class="stat-name">Client Partners</div>
+          <div class="stat-desc">Long-term relationships</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,187 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=1440">
-  <title>fidelw.com — KASTRO direction</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      width: 1440px;
-      height: 900px;
-      overflow: hidden;
-      background: #0A0A0A;
-      font-family: 'Syne', sans-serif;
-    }
-
-    .page {
-      position: relative;
-      width: 1440px;
-      height: 900px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 100px;
-    }
-
-    /* Nav */
-    .nav {
-      position: absolute;
-      top: 48px;
-      left: 100px;
-      right: 100px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-url {
-      font-family: 'Geist Mono', monospace;
-      font-size: 11px;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.25);
-      letter-spacing: 1.5px;
-    }
-
-    .nav-handle {
-      font-family: 'Geist Mono', monospace;
-      font-size: 11px;
-      font-weight: 300;
-      color: rgba(232, 57, 14, 0.6);
-      letter-spacing: 1px;
-    }
-
-    /* Red accent bar — top edge */
-    .accent-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: #E8390E;
-    }
-
-    /* Main */
-    .content {
-      margin-top: -20px;
-    }
-
-    /* Big handle */
-    .handle-text {
-      font-size: 168px;
-      font-weight: 800;
-      color: #FFFFFF;
-      line-height: 0.88;
-      letter-spacing: -6px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    /* Red accent on "O" of KASTRO */
-    .accent-char {
-      color: #E8390E;
-    }
-
-    /* Sub-identity */
-    .sub {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 64px;
-    }
-
-    .sub-name {
-      font-size: 16px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.55);
-      letter-spacing: 2px;
-    }
-
-    .sub-rule {
-      width: 32px;
-      height: 1px;
-      background: rgba(232, 57, 14, 0.5);
-    }
-
-    .sub-role {
-      font-size: 12px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.35);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    /* Links */
-    .links {
-      display: flex;
-      gap: 40px;
-    }
-
-    .link-item {
-      font-family: 'Geist Mono', monospace;
-      font-size: 12px;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.4);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .link-item.accent {
-      color: #E8390E;
-      border-bottom-color: rgba(232, 57, 14, 0.4);
-    }
-
-    /* Bottom */
-    .bottom {
-      position: absolute;
-      bottom: 48px;
-      left: 100px;
-      right: 100px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .direction-tag {
-      font-family: 'Geist Mono', monospace;
-      font-size: 10px;
-      color: rgba(232, 57, 14, 0.25);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>KastrosKastle — Layout Directions</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0A0A0A; color:#fff; font-family:Inter,sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; gap:32px; }
+h1 { font-size:24px; letter-spacing:0.1em; color:#8B0000; }
+.links { display:flex; gap:24px; }
+a { display:block; padding:20px 40px; border:1px solid #8B0000; color:#fff; text-decoration:none; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; transition:background 0.2s; }
+a:hover { background:#8B0000; }
+p { font-size:12px; color:#666; letter-spacing:0.1em; }
+</style>
 </head>
 <body>
-  <div class="page">
-
-    <div class="accent-top"></div>
-
-    <div class="nav">
-      <span class="nav-url">fidelw.com</span>
-      <span class="nav-handle">@kastromedia</span>
-    </div>
-
-    <div class="content">
-      <div class="handle-text">KASTR<span class="accent-char">O</span></div>
-      <div class="sub">
-        <span class="sub-name">Fidel W.</span>
-        <div class="sub-rule"></div>
-        <span class="sub-role">Photographer &nbsp;·&nbsp; AI Founder &nbsp;·&nbsp; Creative Operator</span>
-      </div>
-      <div class="links">
-        <div class="link-item accent">Aiphorism ↗</div>
-        <div class="link-item">Instagram ↗</div>
-        <div class="link-item">LinkedIn ↗</div>
-      </div>
-    </div>
-
-    <div class="bottom">
-      <span class="direction-tag">Direction: Kastro</span>
-    </div>
-
-  </div>
+<h1>KASTROSKASTLE — LAYOUT DIRECTIONS</h1>
+<p>Click to preview each direction</p>
+<div class="links">
+<a href="direction-A.html">A — STRONGHOLD</a>
+<a href="direction-B.html">B — SIGNAL</a>
+<a href="direction-C.html">C — NEXUS</a>
+</div>
 </body>
 </html>
